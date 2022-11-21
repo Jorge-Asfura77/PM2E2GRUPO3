@@ -65,10 +65,6 @@ namespace PM2E2GRUPO3.Views
             var sitio = (Sitio)elemento.Item;
             Navigation.PushAsync(new ModificarUbicacion(sitio));
             
-            /*var secondPage = new ModificarUbicacion(sitio);
-            
-            secondPage.BindingContext = new { sitio };
-            Navigation.PushAsync(secondPage);*/
         }
 
         private async void btnvermapa_Clicked(object sender, EventArgs e)
