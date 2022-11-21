@@ -40,7 +40,7 @@ namespace PM2E2GRUPO3.Views
         }
 
 
-        ////FOTOGRAFIA
+        ////FOTOGRAFIAS
 
         ////Convertir en arreglo de bits
         //Plugin.Media.Abstractions.MediaFile Filefoto = null;
