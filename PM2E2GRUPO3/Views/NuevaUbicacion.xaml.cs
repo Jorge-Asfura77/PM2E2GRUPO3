@@ -8,10 +8,6 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-
-using Plugin.Media;
-
-
 using PM2E2GRUPO3.Controllers;
 using PM2E2GRUPO3.Models;
 using SignaturePad.Forms;
