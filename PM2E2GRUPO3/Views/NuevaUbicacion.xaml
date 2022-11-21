@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PM2E2GRUPO3.Views.NuevaUbicacion"
+             BackgroundColor="White"
+             xmlns:forms="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms">
+    <ScrollView>
+
+        <StackLayout Margin="5">
+
+            <StackLayout>
+                <Frame BackgroundColor="RoyalBlue" Padding="24" CornerRadius="10">
+                    <Label Text="Examen - II Parcial" HorizontalTextAlignment="Center" TextColor="White" FontSize="36" Margin="5"/>
+                </Frame>
+
+            </StackLayout>
+
+            <StackLayout>
+                <Image  x:Name="foto" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            </StackLayout>
+            
+            <StackLayout HorizontalOptions="Center" Margin="5">
+                <forms:SignaturePadView 
+                x:Name="PadView"
+                StrokeWidth="1"
+                StrokeColor="Navy"
+                HeightRequest="100"
+                VerticalOptions="Center"
+                HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+
+            <StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Latitud actual:" TextColor="Navy" FontSize="14" Margin="5"></Label>
+                    <Entry x:Name="latitud" IsReadOnly="True" TextColor="Navy" FontSize="16" Margin="5" HorizontalTextAlignment="Start" BackgroundColor="LightSteelBlue"></Entry>
+                    <Label Text="Longitud actual:" TextColor="Navy" FontSize="14" Margin="5"></Label>
+                    <Entry x:Name="longitud" IsReadOnly="True" TextColor="Navy" FontSize="16" Margin="5" HorizontalTextAlignment="Start" BackgroundColor="LightSteelBlue"></Entry>
+                </StackLayout>
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Describa la ubicación: " TextColor="Navy" FontSize="14" Margin="5"></Label>
+                    </StackLayout>
+                    <Editor x:Name="descripcion" HeightRequest="80" TextColor="Navy" FontSize="16" Margin="5" BackgroundColor="LightSteelBlue"></Editor>
+                </StackLayout>
+            </StackLayout>
+            
+            <StackLayout>
+                <Label Text="Grabar nota de voz" TextColor="Navy" FontSize="14" Margin="5"/>
+
+                <Frame CornerRadius="10" OutlineColor="LightSteelBlue" Padding="0" HasShadow="False" BackgroundColor="LightSteelBlue" Margin="5">
+                    <Label x:Name="ondaespacio"
+                           Text="--------------------------"
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           TextColor="Navy"/>
+                </Frame>
+
+                <StackLayout>
+                    <Button x:Name="grabarvoz" Clicked="grabarvoz_Clicked" Text="Grabar" BackgroundColor="RoyalBlue" Margin="5" CornerRadius="10" IsVisible="True"/>
+                    <Button x:Name="detenervoz" Clicked="detenervoz_Clicked" Text="Detener" BackgroundColor="RoyalBlue" Margin="5" CornerRadius="10" IsVisible="False"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name="btnsalvar" Clicked="btnsalvar_Clicked" Text="Guardar" BackgroundColor="Navy" Margin="5" CornerRadius="10" HorizontalOptions="FillAndExpand"/>
+
+                <Button IsVisible="true" x:Name="btnubicaciones" Clicked="btnubicaciones_Clicked" Text="Ubicaciones" BackgroundColor="Navy" Margin="5" CornerRadius="10" HorizontalOptions="FillAndExpand"/>
+                
+            </StackLayout>
+            
+            
+        </StackLayout>
+        
+    </ScrollView>
+</ContentPage>

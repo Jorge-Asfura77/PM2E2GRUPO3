@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PM2E2GRUPO3.Views.UbicacionesSalvadas"
+             xmlns:Converters="clr-namespace:PM2E2GRUPO3.Converters"
+             BackgroundColor="White"
+             Title="Listado de Ubicaciones">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converters:ByteArrayToImage x:Key="ByteToImage"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout>
+        <Frame x:Name="frmcargando" IsVisible="True" HasShadow="False">
+            <Label x:Name="lblcargando" Text="" TextColor="Navy" FontSize="24" Margin="5" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+        </Frame>
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <ScrollView>
+                <ListView x:Name="ListaSitios" ItemTapped="ListaSitios_ItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <!--<Image Grid.Column="0"
+                                           Source="{Binding foto, Converter={StaticResource ByteToImage}}" Margin="5"/>-->
+                                    <Image Grid.Column="0"
+                                           Source="{Binding FirmaDigital, Converter={StaticResource ByteToImage}}" Margin="5"/>
+                                    <Label Grid.Column="1"
+                                           Text="{Binding Descripcion}" TextColor="Navy" FontSize="14" Margin="5"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+
+            <Button x:Name="btnactualizar" Clicked="btnactualizar_Clicked" Text="Actualizar"
+                    BackgroundColor="RoyalBlue" Margin="5" CornerRadius="10"
+                    IsEnabled="False"/>
+
+            <Button x:Name="btnvermapa" Clicked="btnvermapa_Clicked" Text="Ver Mapa"
+                    BackgroundColor="RoyalBlue" Margin="5" CornerRadius="10"
+                    IsEnabled="False"/>
+
+            <Button x:Name="btnescucharaudio" Clicked="btnescucharaudio_Clicked" Text="Escuchar Audio"
+                        BackgroundColor="RoyalBlue" Margin="5" CornerRadius="10"
+                        IsEnabled="False"/>
+
+
+
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>

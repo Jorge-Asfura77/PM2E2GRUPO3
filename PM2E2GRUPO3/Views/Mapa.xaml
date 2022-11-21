@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="PM2E2GRUPO3.Views.Mapa">
+    <StackLayout>
+        <maps:Map x:Name="mapa"></maps:Map>
+
+        <Button HorizontalOptions="FillAndExpand" Text="Grupo #3" x:Name="btndbanner"
+                BackgroundColor="RoyalBlue"></Button>
+        
+        <Button HorizontalOptions="FillAndExpand" Text="Mode Driving" x:Name="btndriving" Clicked="btndriving_Clicked"
+                BackgroundColor="RoyalBlue" IsVisible="false"></Button>
+    </StackLayout>
+</ContentPage>

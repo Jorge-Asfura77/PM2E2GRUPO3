@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PM2E2GRUPO3.Views.ModificarUbicacion"
+             BackgroundColor="White"
+             xmlns:forms="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             xmlns:Convertidor="clr-namespace:PM2E2GRUPO3.Converters">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Convertidor:ByteArrayToImage x:Key="ByteToImage"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ScrollView>
+
+        <StackLayout>
+            <StackLayout>
+                <!--<Image x:Name="mostrarFoto " Source="{Binding foto, Converter={StaticResource ByteToImage}}" Margin="5"/>-->
+            </StackLayout>
+            
+            <StackLayout BackgroundColor="Black" HorizontalOptions="Center" Margin="5">
+                <forms:SignaturePadView 
+                x:Name="PadView"
+                StrokeWidth="1"
+                StrokeColor="Navy"
+                HeightRequest="100"
+                VerticalOptions="Center"
+                HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="Latitud:" TextColor="Navy" FontSize="14" Margin="5"></Label>
+                <Entry x:Name="latitud" IsReadOnly="True" TextColor="Navy" FontSize="16" Margin="5" HorizontalTextAlignment="Start" BackgroundColor="LightSteelBlue"></Entry>
+                
+                <Label Text="Longitud:" TextColor="Navy" FontSize="14" Margin="5"></Label>
+                <Entry x:Name="longitud" IsReadOnly="True" TextColor="Navy" FontSize="16" Margin="5" HorizontalTextAlignment="Start" BackgroundColor="LightSteelBlue"></Entry>
+                
+                <Label Text="Describa la ubicación:" TextColor="Navy" FontSize="14" Margin="5"></Label>
+                <Editor x:Name="descripcion" HeightRequest="80" TextColor="Navy" FontSize="16" Margin="5" BackgroundColor="LightSteelBlue"></Editor>
+            </StackLayout>
+
+            
+
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name="btnactualizar" Clicked="btnactualizar_Clicked" Text="Actualizar"
+                    BackgroundColor="RoyalBlue" Margin="5" CornerRadius="10" HorizontalOptions="FillAndExpand"
+                    IsEnabled="False"/>
+
+                <Button x:Name="btneliminar" Clicked="btneliminar_Clicked" Text="Eliminar"
+                    BackgroundColor="RoyalBlue" Margin="5" CornerRadius="10" HorizontalOptions="FillAndExpand"
+                    IsEnabled="False"/>
+
+            </StackLayout>
+
+
+        </StackLayout>
+
+    </ScrollView>
+</ContentPage>
