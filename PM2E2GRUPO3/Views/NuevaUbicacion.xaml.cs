@@ -14,6 +14,7 @@ using SignaturePad.Forms;
 using System.IO;
 using Plugin.AudioRecorder;
 using Nancy.Json;
+using Plugin.Media;
 
 namespace PM2E2GRUPO3.Views
 {
@@ -40,52 +41,6 @@ namespace PM2E2GRUPO3.Views
         }
 
 
-        ////FOTOGRAFIAS
-
-        ////Convertir en arreglo de bits
-        //Plugin.Media.Abstractions.MediaFile Filefoto = null;
-        //private Byte[] ConvertImageToByteArray()
-        //{
-        //    if (Filefoto != null)
-        //    {
-        //        using (MemoryStream memory = new MemoryStream())
-        //        {
-        //            Stream stream = Filefoto.GetStream();
-        //            stream.CopyTo(memory);
-        //            return memory.ToArray();
-        //        }
-
-        //    }
-        //    return null;
-
-        //}
-
-        ////Abrir camara
-        //private async void tomarFoto_Clicked(object sender, EventArgs e)
-        //{
-
-        //    //var
-        //    Filefoto = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
-        //    {
-        //        Directory = "MisFotos",
-        //        Name = "test.jpg",
-        //        SaveToAlbum = true,
-        //    });
-
-        //    await DisplayAlert("path directorio", Filefoto.Path, "ok");
-
-        //    if (Filefoto != null)
-        //    {
-        //        foto.Source = ImageSource.FromStream(() =>
-        //        {
-        //            return Filefoto.GetStream();
-        //        });
-        //    }
-
-        //}
-
-
-
 
         private async void grabarvoz_Clicked(object sender, EventArgs e)
         {
@@ -95,14 +50,11 @@ namespace PM2E2GRUPO3.Views
             var status3 = await Permissions.RequestAsync<Permissions.StorageWrite>();
             if (status != PermissionStatus.Granted && status2 != PermissionStatus.Granted && status3 != PermissionStatus.Granted)
             {
-                return; // si no tiene los permisos no avanza
+                return;
             }
 
-            //onda1.IsVisible = true;
-            //onda2.IsVisible = true;
             ondaespacio.IsVisible = true;
             ondaespacio.Text = "Grabando...";
-            //imgmicro.Source = "voice.png";
             btnsalvar.IsEnabled = false;
             grabarvoz.IsVisible = false;
             detenervoz.IsVisible = true;
@@ -114,11 +66,8 @@ namespace PM2E2GRUPO3.Views
 
         private async void detenervoz_Clicked(object sender, EventArgs e)
         {
-            //onda1.IsVisible = false;
-            //onda2.IsVisible = false;
             ondaespacio.IsVisible = true;
             ondaespacio.Text = "Nota de voz guardada";
-            //imgmicro.Source = "voiceoff.png";
             btnsalvar.IsEnabled = true;
             grabarvoz.IsVisible = true;
             detenervoz.IsVisible = false;
@@ -202,31 +151,6 @@ namespace PM2E2GRUPO3.Views
         private async void btnsalvar_Clicked(object sender, EventArgs e)
         {
 
-            ////Guardar foto
-            //if (Filefoto == null)
-            //{
-            //    await DisplayAlert("Operación finalizada", "No se tomó ninguna fotografía", "Hecho");
-            //    return;
-            //}
-
-            //var foto = new Foto
-            //{
-            //    foto = ConvertImageToByteArray(),
-            //};
-
-            //var result = await App.DBase.SavePhoto(foto);
-
-            //if (result > 0)
-            //{
-            //    await DisplayAlert("Operación finalizada", "La fotografía se guardó correctamente", "Hecho");
-            //}
-            //else
-            //{
-            //    await DisplayAlert("Operación finalizada", "Error al guardar la fotografía", "Hecho");
-            //}
-
-
-
 
 
             bool flag1 = false;
@@ -244,40 +168,10 @@ namespace PM2E2GRUPO3.Views
 
             if (!flag1)
             {
-                byte[] ImageBytes = null;
+                //byte[] ImageBytes = null;
                 byte[] AudioBytes = null;
-                var firma = PadView.Strokes;
-/*
-                List<string> list = new List<string>();
-
-                foreach (var item in firma)
-                {
-                    list.Add(item.ToString());
-                }
-                foreach (var item in list)
-                {
-                    Console.WriteLine(item);
-                }
-                Console.ReadLine();*/
-
-                //obtenemos la firma
-                try
-                {
-                    var image = await PadView.GetImageStreamAsync(SignatureImageFormat.Png);
-
-                    //Pasamos la firma a imagen a base 64
-                    var mStream = (MemoryStream)image;
-                    byte[] data = mStream.ToArray();
-                    string base64Val = Convert.ToBase64String(data);
-                    ImageBytes = Convert.FromBase64String(base64Val);
-                }
-                catch (Exception error)
-                {
-                    await DisplayAlert("Aviso", "No has escrito tu firma", "OK");
-                    return;
-                }
-
-                //obtenemos el audio
+                //var firma = PadView.Strokes;
+               
                 try
                 {
                     var audio = audioRecorderService.GetAudioFileStream();
@@ -313,7 +207,7 @@ namespace PM2E2GRUPO3.Views
 
                     //var b = firma.Count();
                     //var b = firma.First(c => c. == id).Name;
-                    var b = serializer.Serialize(firma);
+                  ////var b = serializer.Serialize(firma);
 
                     /*for (int i = 0; i < firma.Count(); i++)
                     {
@@ -333,14 +227,14 @@ namespace PM2E2GRUPO3.Views
                         Descripcion = descripcion.Text,
                         Latitud = latitud.Text,
                         Longitud = longitud.Text,
-                        FirmaDigital = ImageBytes,
+                        //FirmaDigital = ImageBytes,
                         AudioFile = AudioBytes,
-                        firma = b
+                        //firma = b
                     };
 
                     await SitioController.CreateSite(sitio);
                     await DisplayAlert("Aviso", "Sitio adicionado con éxito", "OK");
-                    PadView.Clear();
+                    //PadView.Clear();
                     descripcion.Text = null;
 
                 }

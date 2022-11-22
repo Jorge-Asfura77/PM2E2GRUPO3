@@ -56,8 +56,8 @@ namespace PM2E2GRUPO3.Views
 
             if (!flag1)
             {
-                byte[] ImageBytes = null;
-                var firma = PadView.Strokes;
+                //byte[] ImageBytes = null;
+                //var firma = PadView.Strokes;
                 /*
                                 List<string> list = new List<string>();
 
@@ -74,25 +74,25 @@ namespace PM2E2GRUPO3.Views
                 //obtenemos la firma
                 try
                 {
-                    var image = await PadView.GetImageStreamAsync(SignatureImageFormat.Png);
+                    //var image = await PadView.GetImageStreamAsync(SignatureImageFormat.Png);
 
                     //Pasamos la firma a imagen a base 64
-                    var mStream = (MemoryStream)image;
-                    byte[] data = mStream.ToArray();
-                    string base64Val = Convert.ToBase64String(data);
-                    ImageBytes = Convert.FromBase64String(base64Val);
+                    //var mStream = (MemoryStream)image;
+                    //byte[] data = mStream.ToArray();
+                    //string base64Val = Convert.ToBase64String(data);
+                    //ImageBytes = Convert.FromBase64String(base64Val);
                 }
                 catch (Exception error)
                 {
-                    await DisplayAlert("Aviso", "No has escrito tu firma", "OK");
-                    return;
+                    //await DisplayAlert("Aviso", "No has escrito tu firma", "OK");
+                    //return;
                 }
 
 
                 try
                 {
-                    var serializer = new JavaScriptSerializer();
-                    var trazado = serializer.Serialize(firma);
+                    //var serializer = new JavaScriptSerializer();
+                    //var trazado = serializer.Serialize(firma);
 
                     Sitio sitio = new Sitio
                     {
@@ -100,8 +100,8 @@ namespace PM2E2GRUPO3.Views
                         Descripcion = descripcion.Text,
                         Latitud = latitud.Text,
                         Longitud = longitud.Text,
-                        FirmaDigital = ImageBytes,
-                        firma = trazado
+                        //FirmaDigital = ImageBytes,
+                        //firma = trazado
                     };
 
                     await SitioController.UpdateSitio(sitio);

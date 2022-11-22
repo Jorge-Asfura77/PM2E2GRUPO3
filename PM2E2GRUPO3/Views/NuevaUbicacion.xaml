@@ -15,19 +15,21 @@
 
             </StackLayout>
 
-            <StackLayout>
-                <Image  x:Name="foto" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-            </StackLayout>
+            <!--<StackLayout>
+                <Button Text="Tomar Foto" x:Name="btntomarFoto" Clicked="tomarFoto_Clicked" BackgroundColor="RoyalBlue" Margin="5"/>
+                <Image  x:Name="foto" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="300"/>
+            </StackLayout>-->
             
-            <StackLayout HorizontalOptions="Center" Margin="5">
+            <!--<StackLayout HorizontalOptions="Center" Margin="5">
                 <forms:SignaturePadView 
                 x:Name="PadView"
                 StrokeWidth="1"
                 StrokeColor="Navy"
                 HeightRequest="100"
                 VerticalOptions="Center"
-                HorizontalOptions="CenterAndExpand"/>
-            </StackLayout>
+                HorizontalOptions="CenterAndExpand"
+                IsVisible="false"/>
+            </StackLayout>-->
 
             <StackLayout>
                 <StackLayout Orientation="Vertical">

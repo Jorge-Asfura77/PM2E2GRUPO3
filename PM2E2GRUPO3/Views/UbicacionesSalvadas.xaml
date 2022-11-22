@@ -29,8 +29,8 @@
                                     </Grid.ColumnDefinitions>
                                     <!--<Image Grid.Column="0"
                                            Source="{Binding foto, Converter={StaticResource ByteToImage}}" Margin="5"/>-->
-                                    <Image Grid.Column="0"
-                                           Source="{Binding FirmaDigital, Converter={StaticResource ByteToImage}}" Margin="5"/>
+                                    <!--<Image Grid.Column="0"
+                                           Source="{Binding FirmaDigital, Converter={StaticResource ByteToImage}}" Margin="5"/>-->
                                     <Label Grid.Column="1"
                                            Text="{Binding Descripcion}" TextColor="Navy" FontSize="14" Margin="5"/>
                                 </Grid>
